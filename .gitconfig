@@ -1,0 +1,22 @@
+[user]
+  name = Sean McKenna
+  email = mckennapsean@gmail.com
+[core]
+  excludesfile = /home/sean/.gitignore_global
+[push]
+  default = matching
+[alias]
+  in = init
+  cl = clone
+  st = status -sb
+  di = diff --color-words
+  co = commit -m
+  ac = commit -am
+  lo = log --oneline --abbrev-commit --all --graph --decorate --color
+  sh = stash
+  br = branch
+  ch = checkout
+  me = merge
+  re = rebase
+  pl = pull
+  ps = push
