@@ -1,0 +1,14 @@
+"pactl set-sink-mute 1 toggle"
+XF86AudioMute
+
+"pactl set-sink-volume 1 -5%"
+XF86AudioLowerVolume
+
+"pactl set-sink-volume 1 +5%"
+XF86AudioRaiseVolume
+
+"xbacklight -10"
+XF86KbdBrightnessDown
+
+"xbacklight +10"
+XF86KbdBrightnessUp
