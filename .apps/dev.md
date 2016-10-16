@@ -1,5 +1,5 @@
 Unix Packages
-`zsh htop screen aspell dtrx p7zip unrar git latex-mk node pandoc python3 ruby vim r-base`
+`zsh htop screen aspell dtrx p7zip unrar git latex-mk nodejs pandoc python3 ruby vim r-base`
 
 
 Node.js
