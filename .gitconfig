@@ -2,7 +2,7 @@
   name = Sean McKenna
   email = mckennapsean@gmail.com
 [core]
-  excludesfile = /home/sean/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [push]
   default = matching
 [alias]

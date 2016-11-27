@@ -1,5 +1,5 @@
 Unix Packages
-`zsh htop screen aspell dtrx p7zip unrar git latex-mk node pandoc python3 ruby vim r-base`
+`zsh htop screen aspell dtrx p7zip unrar git texlive nodejs npm pandoc python3 python3-pip ruby vim r-base`
 
 
 Node.js
@@ -12,3 +12,6 @@ Python
 
 Ruby
 `gem install jekyll`
+
+LaTeX
+`tlmgr install latexmk collection-fontsrecommended collection-fontsextra`
