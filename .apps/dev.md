@@ -3,7 +3,7 @@ Unix Packages
 
 
 Node.js
-`npm i -g browser-sync csslint eslint htmlhint http-server jshint nativefier stylelint typescript tslint ungit yarn`
+`npm i -g browser-sync csslint htmlhint http-server nativefier standard stylelint typescript tslint ungit yarn`
 
 
 Python
