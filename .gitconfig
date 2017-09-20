@@ -4,7 +4,7 @@
 [core]
   excludesfile = ~/.gitignore_global
 [push]
-  default = matching
+  default = simple
 [alias]
   in = init
   cl = clone
@@ -12,11 +12,16 @@
   di = diff --color-words
   co = commit -m
   ac = commit -am
+  coa = commit --amend
   lo = log --oneline --abbrev-commit --all --graph --decorate --color
   sh = stash
+  shp = stash pop
   br = branch
   ch = checkout
   me = merge
   re = rebase
+  rem = rebase origin/master
+  fe = fetch
   pl = pull
   ps = push
+  psf = push --force-with-lease
