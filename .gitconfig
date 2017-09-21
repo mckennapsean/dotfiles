@@ -13,6 +13,7 @@
   co = commit -m
   ac = commit -am
   coa = commit --amend
+  cp = cherry-pick
   lo = log --oneline --abbrev-commit --all --graph --decorate --color
   sh = stash
   shp = stash pop
