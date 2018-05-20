@@ -261,4 +261,10 @@ setcolors FILE
 # install all other dev packages
 # set up gitconfig file
 
+# command-line tools
+# file browsing: nnn, midnightcommander
+# code search: fzf, ag, ack
+# download: aria2
+# disk space: pydf
+
 ```
