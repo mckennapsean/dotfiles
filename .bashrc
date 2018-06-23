@@ -2,12 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# point to x11 server on windows
-export DISPLAY=:0
-
-# add texlive 2016
-export PATH=$PATH:/opt/texbin
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -43,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -119,6 +113,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
 # execute the default shell (set as zsh)
 export SHELL=/bin/zsh
 [ -x $SHELL ] && exec $SHELL
+
+# point to x11 server on windows
+# export DISPLAY=:0
+
+# add texlive 2016
+# export PATH=$PATH:/opt/texbin
+
+# added by Anaconda3 installer
+# export PATH="/home/seanm/anaconda3/bin:$PATH"
