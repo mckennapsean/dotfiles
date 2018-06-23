@@ -12,4 +12,9 @@ if ! zgen saved; then
   zgen save
 fi
 
+# dircolors for customizing line output
+if [[ -f /usr/bin/dircolors && -f $HOME/.dircolors ]]; then
+	eval $(dircolors -b $HOME/.dircolors)
+fi
+
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"

@@ -47,7 +47,7 @@ bindsym $mod+Return exec termite
 
 # start a browser
 #bindsym $mod+backslash exec firefox.ubuntu
-bindsym $mod+backslash exec google-chrome
+bindsym $mod+backslash exec google-chrome-stable
 
 # take a screenshot
 bindsym $mod+equal exec gnome-screenshot -a
@@ -212,7 +212,7 @@ client.focused $purple $purple $base $base
 bar {
     font pango: Source Sans Pro 10
     status_command i3status
-    
+   
     colors {
         focused_workspace $base $purple $light
     }
