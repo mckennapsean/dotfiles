@@ -2,9 +2,10 @@
   name = Sean McKenna
   email = mckennapsean@gmail.com
 [core]
+  editor = vim
   excludesfile = ~/.gitignore_global
 [push]
-  default = simple
+  default = current
 [alias]
   in = init
   cl = clone
@@ -12,16 +13,19 @@
   di = diff --color-words
   co = commit -m
   ac = commit -am
-  coa = commit --amend
+  coa = commit --amend --no-edit
   cp = cherry-pick
-  lo = log --oneline --abbrev-commit --all --graph --decorate --color
+  lo = log --oneline --abbrev-commit --graph --decorate --color
+  lop = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %<|(80,trunc)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   sh = stash
   shp = stash pop
   br = branch
   ch = checkout
   me = merge
   re = rebase
+  rec = rebase --continue
   rem = rebase origin/master
+  res = rebase master/stable
   fe = fetch
   pl = pull
   ps = push
