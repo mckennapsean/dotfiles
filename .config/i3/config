@@ -35,22 +35,34 @@ set $left h
 set $right l
 
 # set mod key
-set $mod Mod4
+set $mod Mod1
+set $mod4 Mod4
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 
 # start a browser
-bindsym $mod+backslash exec google-chrome-stable
+#bindsym $mod+backslash exec firefox.ubuntu
+bindsym $mod+backslash exec google-chrome
+
+# take a screenshot
+bindsym $mod+equal exec gnome-screenshot -a
+
+# display modes: desktop vs mirrored
+bindsym $mod+bracketleft exec ~/.screenlayout/laptop.sh
+bindsym $mod+bracketright exec ~/.screenlayout/desktop-overlap.sh && ~/.screenlayout/desktop.sh
+bindsym $mod+semicolon exec ~/.screenlayout/present.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -h 25 -fn SourceSansPro:SemiBold:Italic -sb "#63C"
+#bindsym $mod+d exec dmenu_run -h 25 -fn SourceSansPro:SemiBold:Italic -sb "#63C"
+bindsym $mod+d exec dmenu_run -fn SourceSansPro:SemiBold:Italic -sb "#63C"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -63,10 +75,10 @@ bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+$left move left
@@ -75,10 +87,16 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
+
+# move focused workspace
+bindsym $mod+$mod4+$left move workspace to output left
+bindsym $mod+$mod4+$down move workspace to output down
+bindsym $mod+$mod4+$up move workspace to output up
+bindsym $mod+$mod4+$right move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+c split h
@@ -183,6 +201,7 @@ bindsym $mod+r mode "resize"
 new_window pixel
 
 # color configuration
+exec --no-startup-id xsetroot -solid "#000000"
 set $base #272822
 set $light #dddddd
 set $purple #8e78de
@@ -190,14 +209,14 @@ client.focused $purple $purple $base $base
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#    font pango: Source Sans Pro 10
-#    status_command i3status
-#    
-#    colors {
-#        focused_workspace $base $purple $light
-#    }
-#}
+bar {
+    font pango: Source Sans Pro 10
+    status_command i3status
+    
+    colors {
+        focused_workspace $base $purple $light
+    }
+}
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
