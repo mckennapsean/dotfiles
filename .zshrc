@@ -8,6 +8,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/vi-mode
   zgen oh-my-zsh plugins/wd
   zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-autosuggestions
   zgen oh-my-zsh themes/theunraveler
   zgen save
 fi
