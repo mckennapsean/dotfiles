@@ -3,13 +3,13 @@ font = Source Code Pro 12
 scrollback_lines = -1
 
 [colors]
-background = rgba(39, 40, 34, 0.8)
+background = rgba(39, 40, 34, 0.9)
 
 # special
 foreground      = #f8f8f2
 foreground_bold = #f8f8f2
 cursor          = #f8f8f2
-background      = #272822
+#background      = #272822
 
 # black
 color0  = #272822

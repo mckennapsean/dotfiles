@@ -248,6 +248,7 @@ setcolors FILE
 # file sync: insync
 # configure insync: `insync start` & add this command to `.xprofile`
 
+# desktop: dunst feh i3-gaps compton gnome-screenshot
 # documents: libreoffice latex-mk pandoc aspell
 # pdf viewer: evince
 # image viewer: gpicview
