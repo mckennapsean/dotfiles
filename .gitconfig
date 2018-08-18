@@ -30,5 +30,6 @@
   res = rebase master/stable
   fe = fetch
   pl = pull
+  up = fetch origin master:master
   ps = push
   psf = push --force-with-lease
