@@ -54,7 +54,7 @@ bindsym $mod+equal exec gnome-screenshot -a
 
 # display modes: desktop vs mirrored
 bindsym $mod+bracketleft exec ~/.screenlayout/laptop.sh
-bindsym $mod+bracketright exec ~/.screenlayout/desktop-overlap.sh && ~/.screenlayout/desktop.sh
+bindsym $mod+bracketright exec ~/.screenlayout/desktop.sh
 bindsym $mod+semicolon exec ~/.screenlayout/present.sh
 
 # kill focused window
