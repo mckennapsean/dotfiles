@@ -22,6 +22,7 @@
   sh = stash
   shp = stash pop
   br = branch
+  brd = branch -D
   ch = checkout
   me = merge
   re = rebase
