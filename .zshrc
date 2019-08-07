@@ -19,3 +19,4 @@ if [[ -f /usr/bin/dircolors && -f $HOME/.dircolors ]]; then
 fi
 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+PATH="/opt/:$PATH"
