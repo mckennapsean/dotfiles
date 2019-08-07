@@ -23,6 +23,8 @@
   shp = stash pop
   br = branch
   brd = branch -D
+  clear = "!git ch master && git br --merged | grep -v '\\*' | xargs -n 1 git brd"
+  nuke = "!git ch master && git br | grep -v '\\*' | xargs -n 1 git brd"
   ch = checkout
   me = merge
   re = rebase
