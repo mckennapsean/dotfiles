@@ -147,13 +147,15 @@ acpi -i
 pacaur -S xf86-video-intel mesa-libgl arandr
 
 # touchpad drivers
-pacaur -S xf86-input-synaptics
-vi ~/.synaptic
-# create bash script with commands using synclient:
-#     activate two finger scroll, swap TapButtons,
-#     and turn on PalmDetection (width=5, z=100)
-#     invert trackpad direction
-chmod +x ~/.synaptic
+pacaur -S libinput
+# create file: /etc/X11/xorg.conf.d/30-touchpad.conf
+#     Section "InputClass"
+#        Identifier "touchpad"
+#        Driver "libinput"
+#        MatchIsTouchpad "on"
+#        Option "NaturalScrolling" "on"
+#        Option "Tapping" "on"
+#     EndSection
 
 # brightness keys
 pacaur -S xorg-xbacklight
@@ -181,7 +183,7 @@ vi ~/.xbindkeysrc
 
 # run scripts on login
 vi ~/.xprofile
-# `xbindkeys &` and `~/.synaptic &`
+# `xbindkeys &`
 
 # bluetooth config
 pacaur -S bluez bluez-utils
