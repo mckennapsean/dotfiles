@@ -158,8 +158,8 @@ pacaur -S libinput
 #     EndSection
 
 # brightness keys
-pacaur -S xorg-xbacklight
-xbacklight +10
+pacaur -S light
+light -A 10
 
 # sound (enabled by default but muted)
 pacaur -S alsa-utils

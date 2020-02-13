@@ -7,8 +7,8 @@ XF86AudioLowerVolume
 "pactl set-sink-volume 1 +5%"
 XF86AudioRaiseVolume
 
-"xbacklight -10"
-XF86KbdBrightnessDown
+"sudo light -U 10"
+XF86MonBrightnessDown
 
-"xbacklight +10"
-XF86KbdBrightnessUp
+"sudo light -A 10"
+XF86MonBrightnessUp
