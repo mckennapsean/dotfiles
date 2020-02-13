@@ -20,3 +20,31 @@ fi
 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 PATH="/opt/:$PATH"
+PATH="${HOME}/.bin:/opt/:$PATH"
+
+# auto-complete for git alias
+_git_behind_master ()
+{
+  _git_rebase
+}
+
+alias cpu='watch grep \"cpu MHz\" /proc/cpuinfo'
+alias pkk='pkill -9 -f'
+
+alias ergodox='feh --bg-max ~/Pictures/Ergodox/ergodox.png'
+
+# work aliases
+alias lsd='lucid-start --dummy'
+alias lbb='lucid-bazel build'
+alias lbf='lucid-bazel format'
+alias lbr='lucid-bazel run'
+alias lbt='lucid-bazel test'
+
+# work-specfic config
+export BAZEL_COMPLETION_USE_QUERY=true
+NOW=$(date +%s)
+LAST_RUN=$(sudo cat /var/cache/chef/lastrun)
+if (( LAST_RUN + 30*60 < NOW )); then
+    echo "WARNING: Chef not run for more than 30 minutes."
+fi
+cd ~/lucid/main/cake/
