@@ -16,6 +16,7 @@
   co = commit -m
   ac = commit -am
   coa = commit --amend --no-edit
+  cf = commit --fixup
   cp = cherry-pick
   lo = log --oneline --abbrev-commit --graph --decorate --color
   lop = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %<|(80,trunc)%s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -25,7 +26,7 @@
   brd = branch -D
   clear = "!git ch master && git br --merged | grep -v '\\*' | xargs -n 1 git brd"
   nuke = "!git ch master && git br | grep -v '\\*' | xargs -n 1 git brd"
-  age = for-each-ref --sort=-authordate --format '%(align:left,15) %(authordate:relative) %(end)%(align:left,30) %(refname:short)%(end) %(subject)' refs/heads 
+  age = for-each-ref --sort=-authordate --format '%(align:left,15) %(authordate:relative) %(end)%(align:left,30) %(refname:short)%(end) %(subject)' refs/heads
   aged = for-each-ref --sort=-authordate --format '%(authordate:format:%Y-%m-%d %H:%M) %(align:left,30) %(refname:short)%(end) %(subject)' refs/heads
   rev-behind = !git rev-list --count origin/master ^$1
   how-far-behind = !git --no-pager show $(git merge-base origin/master $1) --pretty=format:'%ar' --no-patch
@@ -33,10 +34,16 @@
   ch = checkout
   me = merge
   re = rebase
+  ree = rebase --exec --keep-base
+  rei = rebase --interactive --keep-base
+  ref = rebase --interactive --autosquash
   rec = rebase --continue
   rem = rebase origin/master
+  reo = rebase --onto
   fe = fetch
   pl = pull
   up = fetch origin master:master
   ps = push
   psf = push --force-with-lease
+  wt = worktree
+  lb = shortlog -sn --no-merges
