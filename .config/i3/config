@@ -200,6 +200,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+for_window [class="zoom"] floating enable
+
 # hide border title
 new_window pixel
 
