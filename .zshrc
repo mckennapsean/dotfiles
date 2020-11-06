@@ -33,28 +33,3 @@ alias pkk='pkill -9 -f'
 alias gitmain='git remote show origin | grep "HEAD branch" | cut -d" " -f5'
 
 alias ergodox='feh --bg-max ~/Pictures/Ergodox/ergodox.png'
-
-# work aliases
-alias lsf='lucid-start --frontend'
-alias lss='lucid-start'
-alias lbb='lucid-bazel build'
-alias lbf='lucid-bazel format'
-alias lbff='lucid-bazel format-fast'
-alias lbr='lucid-bazel run'
-alias lbt='lucid-bazel test'
-alias lbq='lucid-bazel query'
-alias lde='python3 ~/lucid/main/cake/app/lucidchart-tools/document-state-extractor/extract-document-state.py'
-alias check='git check && git fetch && echo "Git fetched from upstream." && git check'
-alias gcalf='git commit --amend --author="Lucid Format <ops@lucidchart.com>"'
-alias ldt='~/lucid/main/scripts/list-deploy-targets.sh'
-alias lir='lucid-is-released -e production'
-lbv() { lucido version --commit=$1 bazel:cake-build:cake-bazel:tgz }
-
-# work-specfic config
-export BAZEL_COMPLETION_USE_QUERY=true
-NOW=$(date +%s)
-LAST_RUN=$(sudo cat /var/cache/chef/lastrun)
-if (( LAST_RUN + 30*60 < NOW )); then
-    echo "WARNING: Chef not run for more than 30 minutes."
-fi
-cd ~/lucid/main/
