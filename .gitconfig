@@ -1,6 +1,6 @@
 [user]
   name = Sean McKenna
-  email = mckennapsean@gmail.com
+  email = seanm@lucid.co
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
@@ -25,6 +25,7 @@
   br = branch
   brd = branch -D
   done = "!git br --merged origin/master | xargs -n 1 git br -d"
+  brm = branch -b $1 origin/master-stable
   clear = "!git ch master && git br --merged | grep -v '\\*' | xargs -n 1 git brd"
   nuke = "!git ch master && git br | grep -v '\\*' | xargs -n 1 git brd"
   age = for-each-ref --sort=-authordate --format '%(align:left,15) %(authordate:relative) %(end)%(align:left,30) %(refname:short)%(end) %(subject)' refs/heads
@@ -32,7 +33,10 @@
   rev-behind = !git rev-list --count origin/master ^$1
   how-far-behind = !git --no-pager show $(git merge-base origin/master $1) --pretty=format:'%ar' --no-patch
   behind-master = !echo $1: $(git rev-behind $1) behind, $(git how-far-behind $1) && :
+  check = !git behind-master origin/master && git behind-master origin/master-built && git behind-master origin/master-stable
   ch = checkout
+  chmb = !git ch -b $1 origin/master-built && :
+  chms = !git ch -b $1 origin/master-stable && :
   me = merge
   re = rebase
   ree = rebase --exec --keep-base
@@ -41,6 +45,7 @@
   rec = rebase --continue
   rem = rebase origin/master
   reo = rebase --onto
+  res = rebase origin/master-stable
   fe = fetch
   pl = pull
   up = fetch origin master:master
@@ -49,3 +54,6 @@
   wt = worktree
   lb = shortlog -sn --no-merges
   bi = bisect
+[credential]
+  helper = !aws --profile production codecommit credential-helper $@
+  UseHttpPath = true
