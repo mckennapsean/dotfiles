@@ -1,6 +1,6 @@
 [user]
   name = Sean McKenna
-  email = seanm@lucid.co
+  email = seanm@lucidchart.com
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
