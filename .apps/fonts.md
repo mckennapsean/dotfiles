@@ -1,7 +1,6 @@
+FiraCode
 FontAwesome
-Roboto
-Roboto Condensed
-Roboto Slab
+JetBrains Mono
 Source Code Pro
 Source Sans Pro
 Source Serif Pro
