@@ -241,16 +241,16 @@ setcolors FILE
 # networking gui: connman-gtk
 # archiving: dtrx p7zip unrar
 # system info: archey3 htop baobab
-# utilities: screen xfce4-screenshooter caffeine-ng
+# utilities: screen xfce4-screenshooter caffeine-ng gnome-screenshot peek
 # add caffeine-ng to `.xprofile`
 
 # text editors: vim emacs sublime-text-dev visual-studio-code
-# file transfer: openssiuuh filezilla
+# file transfer: openssh filezilla
 # file browser: nautilus ranger
 # file sync: insync
 # configure insync: `insync start` & add this command to `.xprofile`
 
-# desktop: dunst feh i3-gaps compton gnome-screenshot
+# desktop: dunst feh i3-gaps compton
 # documents: libreoffice latex-mk pandoc aspell
 # pdf viewer: evince
 # image viewer: gpicview
@@ -265,8 +265,8 @@ setcolors FILE
 # set up gitconfig file
 
 # command-line tools
-# file browsing: nnn, midnightcommander
-# code search: fzf, ag, ack
+# file browsing: nnn, midnightcommander-mc
+# code search: fzf, silversearcher-ag, ack
 # download: aria2
 # disk space: pydf
 
