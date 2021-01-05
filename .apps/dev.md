@@ -3,15 +3,12 @@ Unix Packages
 
 
 Node.js
-`npm i -g browser-sync csslint htmlhint http-server lighthouse nativefier standard stylelint typescript tslint ungit yarn`
+`npm i -g browser-sync csslint htmlhint http-server lighthouse nativefier standard stylelint typescript ungit yarn`
 
 
 Python
 `pip install flake8 pep8`
 
-
-Ruby
-`gem install jekyll`
 
 LaTeX
 `tlmgr install latexmk collection-fontsrecommended collection-fontsextra`
