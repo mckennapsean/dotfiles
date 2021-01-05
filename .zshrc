@@ -21,6 +21,7 @@ fi
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 PATH="/opt/:$PATH"
 PATH="${HOME}/.bin:/opt/:$PATH"
+PATH="${HOME}/.local/bin/:$PATH"
 
 # auto-complete for git alias
 _git_behind_master ()
