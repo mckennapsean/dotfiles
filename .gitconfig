@@ -58,3 +58,5 @@
 [credential]
   helper = !aws --profile production codecommit credential-helper $@
   UseHttpPath = true
+[maintenance]
+  repo = /home/seanm/lucid/main
