@@ -32,5 +32,6 @@ _git_behind_master ()
 alias cpu='watch grep \"cpu MHz\" /proc/cpuinfo'
 alias pkk='pkill -9 -f'
 alias gitmain='git remote show origin | grep "HEAD branch" | cut -d" " -f5'
+alias g='git'
 
 alias ergodox='feh --bg-max ~/Pictures/Ergodox/ergodox.png'
