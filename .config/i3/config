@@ -53,7 +53,7 @@ bindsym $mod+equal exec gnome-screenshot -a
 
 # display modes: desktop vs mirrored
 bindsym $mod+bracketleft exec ~/.screenlayout/laptop.sh
-bindsym $mod+bracketright exec ~/.screenlayout/desktop.sh
+bindsym $mod+bracketright exec ~/.screenlayout/desktop-single.sh
 bindsym $mod+semicolon exec ~/.screenlayout/present.sh
 
 # random wallpapers
@@ -171,7 +171,7 @@ bindsym $mod+Shift+e exit
 bindsym Ctrl+$mod+l exec i3lock -c 333333
 
 # lock & sleep
-bindsym Ctrl+$mod+semicolon exec "i3lock -c 333333 && systemctl suspend"
+bindsym Ctrl+$mod+semicolon exec "i3lock -c 333333; systemctl suspend"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -200,6 +200,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 for_window [class="zoom"] floating enable
+for_window [title="Zoom"] floating enable
+for_window [class="^join\?"] floating enable
 
 # hide border title
 new_window pixel
