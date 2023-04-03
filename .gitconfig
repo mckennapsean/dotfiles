@@ -60,3 +60,5 @@
   UseHttpPath = true
 [maintenance]
   repo = /home/seanm/lucid/main
+[rerere]
+	enabled = true
