@@ -29,30 +29,47 @@ _git_behind_master ()
 {
   _git_rebase
 }
+GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 alias cpu='watch grep \"cpu MHz\" /proc/cpuinfo'
 alias pkk='pkill -9 -f'
 alias gitmain='git remote show origin | grep "HEAD branch" | cut -d" " -f5'
-
 alias g='git'
+
 alias ergodox='feh --bg-max ~/Pictures/Ergodox/ergodox.png'
 
-
 # work aliases
-alias lsf='lucid-start --frontend'
-alias lss='lucid-start'
+alias lsf='lucid-start fast'
+alias lsfe='lucid-start sh --frontend'
+alias lsbe='lucid-start sh --s3_assets'
+alias lss='lucid-start sh'
 alias lbb='lucid-bazel build'
 alias lbf='lucid-bazel format'
 alias lbff='lucid-bazel format-fast'
+alias lbfd='lucid-bazel format --diff'
 alias lbr='lucid-bazel run'
 alias lbt='lucid-bazel test'
 alias lbq='lucid-bazel query'
+alias scalats='lucid-bazel build $(lucid-bazel query generatets)'
+alias compat='bazel build $(bazel query "filter(compat_test, //src/jvm/...)") --keep_going || tools/bazel-fix-deps.py'
+lbbd() {bazel build $(bazel query "same_pkg_direct_rdeps(set($(git diff --name-only $1)))")}
+alias tb='trigger-build'
+alias gpab='g psf;tb'
+alias lblc='export BAZEL_CACHE=none'
+alias lbrc='unset BAZEL_CACHE'
 alias lde='python3 ~/lucid/main/cake/app/lucidchart-tools/document-state-extractor/extract-document-state.py'
 alias check='git check && git fetch && echo "Git fetched from upstream." && git check'
 alias gcalf='git commit --amend --author="Lucid Format <ops@lucidchart.com>"'
 alias ldt='~/lucid/main/scripts/list-deploy-targets.sh'
 alias lir='lucid-is-released -e production'
 lbv() { lucido version --commit=$1 bazel:cake-build:cake-bazel:tgz }
+alias lll='~/lucid/l3/l3.sh'
+alias lco='lll checkout'
+
+# Usage: set-main ~/lucid/main
+set-main() {
+    sudo rm -f /var/lucid/main && sudo ln -s "$(readlink -f ${1})" /var/lucid/main
+};
 
 # work-specfic config
 export BAZEL_COMPLETION_USE_QUERY=true
@@ -61,4 +78,6 @@ LAST_RUN=$(sudo cat /var/cache/chef/lastrun)
 if (( LAST_RUN + 30*60 < NOW )); then
     echo "WARNING: Chef not run for more than 30 minutes."
 fi
-cd ~/lucid/main/
+#cd ~/lucid/main/
+alias main='cd ~/lucid/branches/main/'
+. /home/seanm/.asdf/asdf.sh
