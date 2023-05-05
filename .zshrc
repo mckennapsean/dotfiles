@@ -53,7 +53,7 @@ alias lbq='lucid-bazel query'
 alias scalats='lucid-bazel build $(lucid-bazel query generatets)'
 alias compat='bazel build $(bazel query "filter(compat_test, //src/jvm/...)") --keep_going || tools/bazel-fix-deps.py'
 lbbd() {bazel build $(bazel query "same_pkg_direct_rdeps(set($(git diff --name-only $1)))")}
-alias tb='trigger-build'
+alias tb='shed trigger-build'
 alias gpab='g psf;tb'
 alias lblc='export BAZEL_CACHE=none'
 alias lbrc='unset BAZEL_CACHE'
@@ -78,6 +78,6 @@ LAST_RUN=$(sudo cat /var/cache/chef/lastrun)
 if (( LAST_RUN + 30*60 < NOW )); then
     echo "WARNING: Chef not run for more than 30 minutes."
 fi
-#cd ~/lucid/main/
+cd ~/lucid/main/
 alias main='cd ~/lucid/branches/main/'
 . /home/seanm/.asdf/asdf.sh
