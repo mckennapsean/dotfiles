@@ -123,7 +123,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -242,6 +242,8 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 exec i3-config-wizard
+
+exec xrandr --dpi 96
 
 exec compton -b
 
