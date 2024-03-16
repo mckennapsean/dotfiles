@@ -36,8 +36,6 @@ alias pkk='pkill -9 -f'
 alias gitmain='git remote show origin | grep "HEAD branch" | cut -d" " -f5'
 alias g='git'
 
-alias ergodox='feh --bg-max ~/Pictures/Ergodox/ergodox.png'
-
 # work aliases
 alias lsf='lucid-start fast'
 alias lsfe='lucid-start sh --frontend'
