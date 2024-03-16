@@ -83,4 +83,5 @@ NOW=$(date +%s)
 LAST_RUN=$(sudo cat /var/cache/chef/lastrun)
 if (( LAST_RUN + 120*60 < NOW )); then
     echo "WARNING: Chef not run for more than 120 minutes."
-. /home/seanm/.asdf/asdf.sh
+fi
+cd ~/lucid/main/
