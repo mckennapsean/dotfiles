@@ -1,6 +1,3 @@
-# to perform profiling with the `zprof` command
-# zmodload zsh/zprof
-
 source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
@@ -78,9 +75,6 @@ set-main() {
 export BAZEL_COMPLETION_USE_QUERY=true
 NOW=$(date +%s)
 LAST_RUN=$(sudo cat /var/cache/chef/lastrun)
-if (( LAST_RUN + 30*60 < NOW )); then
-    echo "WARNING: Chef not run for more than 30 minutes."
-fi
-cd ~/lucid/main/
-alias main='cd ~/lucid/branches/main/'
+if (( LAST_RUN + 120*60 < NOW )); then
+    echo "WARNING: Chef not run for more than 120 minutes."
 . /home/seanm/.asdf/asdf.sh
