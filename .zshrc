@@ -1,3 +1,6 @@
+# to perform profiling with the `zprof` command
+# zmodload zsh/zprof
+
 source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
