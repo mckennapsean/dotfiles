@@ -59,12 +59,18 @@ alias lblc='export BAZEL_CACHE=none'
 alias lbrc='unset BAZEL_CACHE'
 alias lde='python3 ~/lucid/main/cake/app/lucidchart-tools/document-state-extractor/extract-document-state.py'
 alias check='git check && git fetch && echo "Git fetched from upstream." && git check'
+alias state='shed bitbucket master-branches'
+alias prs='shed bitbucket list-recent-prs'
 alias gcalf='git commit --amend --author="Lucid Format <ops@lucidchart.com>"'
 alias ldt='~/lucid/main/scripts/list-deploy-targets.sh'
 alias lir='lucid-is-released -e production'
 lbv() { lucido version --commit=$1 bazel:cake-build:cake-bazel:tgz }
 alias lll='~/lucid/l3/l3.sh'
 alias lco='lll checkout'
+alias cpr='shed bitbucket create-pr-link'
+alias gpr='shed bitbucket get-pr-link'
+alias mpr='shed bitbucket merge-when-ready'
+alias csd='shed bitbucket create-pr-link --target $(git log --pretty=format:%D | grep -m1 "^origin/" | cut -d, -f1 | sed "s/^origin\///")'
 
 # Usage: set-main ~/lucid/main
 set-main() {
