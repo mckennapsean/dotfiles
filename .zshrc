@@ -22,16 +22,21 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 PATH="/opt/:$PATH"
 PATH="${HOME}/.bin:/opt/:$PATH"
 PATH="${HOME}/.local/bin/:$PATH"
+PATH="${HOME}/.npm/bin/:$PATH"
 
 # auto-complete for git alias
 _git_behind_master ()
 {
   _git_rebase
 }
+GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
 alias cpu='watch grep \"cpu MHz\" /proc/cpuinfo'
 alias pkk='pkill -9 -f'
 alias gitmain='git remote show origin | grep "HEAD branch" | cut -d" " -f5'
 alias g='git'
 
-alias ergodox='feh --bg-max ~/Pictures/Ergodox/ergodox.png'
+# load work config
+if [[ $(hostname) == *"lucid"* ]]; then
+  . ~/.zshrc.lucid
+fi

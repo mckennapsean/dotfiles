@@ -13,6 +13,7 @@
   cl = clone
   st = status -sb
   di = diff --color-words
+  dis = diff --stat
   co = commit -m
   ac = commit -am
   coa = commit --amend --no-edit
@@ -33,6 +34,8 @@
   how-far-behind = !git --no-pager show $(git merge-base origin/master $1) --pretty=format:'%ar' --no-patch
   behind-master = !echo $1: $(git rev-behind $1) behind, $(git how-far-behind $1) && :
   ch = checkout
+  sw = switch
+  swd = switch --detach
   me = merge
   re = rebase
   ree = rebase --exec --keep-base
@@ -46,6 +49,27 @@
   up = fetch origin master:master
   ps = push
   psf = push --force-with-lease
+  pfa = push --force-with-lease --atomic
   wt = worktree
   lb = shortlog -sn --no-merges
   bi = bisect
+  stat = !git diff --stat $(git merge-base HEAD "origin/master")
+[branch]
+  sort = -committerdate
+[diff]
+  algorithm = histogram
+  colorMoved = default
+[merge]
+  conflictstyle = zdiff3
+  tool = meld
+[rerere]
+  enabled = true
+[rebase]
+  autostash = true
+  updateRefs = true
+[pull]
+  rebase = true
+[push]
+  autoSetupRemote = true
+[includeIf "gitdir:~/lucid/*/"]
+  path = "~/.gitconfig.lucid"

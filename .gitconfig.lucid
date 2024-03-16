@@ -1,0 +1,14 @@
+[user]
+  email = seanm@lucidchart.com
+[alias]
+  check = !git behind-master origin/master && git behind-master origin/master-built && git behind-master origin/master-stable
+  chmb = !git ch -b $1 origin/master-built && :
+  chms = !git ch -b $1 origin/master-stable && :
+  res = rebase origin/master-stable
+[credential]
+  helper = !aws --profile production codecommit credential-helper $@
+  UseHttpPath = true
+[scalar]
+  repo = ~/lucid/main
+[maintenance]
+  repo = ~/lucid/main

@@ -88,6 +88,9 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lsdf='ls --group-directories-first'
+alias lsl='ls -l'
+alias g='git'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -114,6 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH="$HOME/.npm/bin:$PATH"
 
 # execute the default shell (set as zsh)
 export SHELL=/bin/zsh
@@ -127,3 +131,6 @@ export SHELL=/bin/zsh
 
 # added by Anaconda3 installer
 # export PATH="/home/seanm/anaconda3/bin:$PATH"
+
+export PATH=/home/seanm/.local/bin:$PATH
+. "$HOME/.cargo/env"

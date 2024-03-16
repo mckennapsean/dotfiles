@@ -1,0 +1,15 @@
+[global]
+    geometry = "450x5-30+20"
+    format = "<b>%s</b>\n%b"
+    separator_height = 4
+    padding = 16
+    horizontal_padding = 16
+    frame_width = 1
+
+[shortcuts]
+    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+    # "mod3" and "mod4" (windows-key).
+    # Xev might be helpful to find names for keys.
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = mod4+space
