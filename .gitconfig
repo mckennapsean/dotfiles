@@ -26,7 +26,6 @@
   br = branch
   brd = branch -D
   done = "!git br --merged origin/master | xargs -n 1 git br -d"
-  done = "!git br --merged origin/master | xargs -n 1 git br -d"
   clear = "!git ch master && git br --merged | grep -v '\\*' | xargs -n 1 git brd"
   nuke = "!git ch master && git br | grep -v '\\*' | xargs -n 1 git brd"
   age = for-each-ref --sort=-authordate --format '%(align:left,15) %(authordate:relative) %(end)%(align:left,30) %(refname:short)%(end) %(subject)' refs/heads
