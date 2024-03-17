@@ -37,6 +37,7 @@ alias gitmain='git remote show origin | grep "HEAD branch" | cut -d" " -f5'
 alias g='git'
 
 # load work config
-if [[ $(hostname) == *"lucid"* ]]; then
+hostnameOutput=$(command hostname 2>/dev/null) || true
+if [[ $hostnameOutput == *"lucid"* ]]; then
   . ~/.zshrc.lucid
 fi
