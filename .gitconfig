@@ -71,5 +71,8 @@
   rebase = true
 [push]
   autoSetupRemote = true
+[credential]
+  helper = cache
 [includeIf "gitdir:~/lucid/*/"]
   path = "~/.gitconfig.lucid"
+
