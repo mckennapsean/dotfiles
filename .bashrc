@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+#export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH="$HOME/.npm/bin:$PATH"
 
 # execute the default shell (set as zsh)
