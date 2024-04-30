@@ -1,0 +1,11 @@
+f = format
+t = test
+b = build
+tf = --test_filter
+rpt = --runs_per_test
+tdf = --runs_per_test_detects_flakes
+ta = --test_arg
+to = --test_output=streamed
+nc = --nocache_test_results
+sh = --test_sharding_strategy=explicit
+ts = //cake/app/webroot/ts/
