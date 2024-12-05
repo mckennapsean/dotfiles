@@ -35,6 +35,7 @@ alias cpu='watch grep \"cpu MHz\" /proc/cpuinfo'
 alias pkk='pkill -9 -f'
 alias gitmain='git remote show origin | grep "HEAD branch" | cut -d" " -f5'
 alias g='git'
+alias git='git-branchless wrap --'
 
 # load work config
 hostnameOutput=$(command hostname 2>/dev/null) || true

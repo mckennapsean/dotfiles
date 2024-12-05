@@ -34,8 +34,6 @@
   how-far-behind = !git --no-pager show $(git merge-base origin/master $1) --pretty=format:'%ar' --no-patch
   behind-master = !echo $1: $(git rev-behind $1) behind, $(git how-far-behind $1) && :
   ch = checkout
-  sw = switch
-  swd = switch --detach
   me = merge
   re = rebase
   ree = rebase --exec --keep-base
