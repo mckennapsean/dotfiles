@@ -5,6 +5,7 @@
   chmb = !git ch -b $1 origin/master-built && :
   chms = !git ch -b $1 origin/master-stable && :
   res = rebase origin/master-stable
+  pab = !git push --force-with-lease && shed trigger-build
 [credential]
   helper = !aws --profile production codecommit credential-helper $@
   UseHttpPath = true
