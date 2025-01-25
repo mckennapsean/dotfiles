@@ -1,6 +1,8 @@
 f = format
 t = test
 b = build
+r = run
+i = irun
 tf = --test_filter
 rpt = --runs_per_test
 tdf = --runs_per_test_detects_flakes
