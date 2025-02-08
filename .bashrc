@@ -119,8 +119,8 @@ fi
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH="$HOME/.npm/bin:$PATH"
 
-# execute the default shell (set as zsh)
-export SHELL=/bin/zsh
+# execute the default shell (set as fish)
+export SHELL=/bin/fish
 [ -x $SHELL ] && exec $SHELL
 
 # point to x11 server on windows
