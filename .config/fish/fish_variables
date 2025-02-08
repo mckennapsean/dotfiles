@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR EDITOR:hx
+SETUVAR --export EDITOR:hx
+SETUVAR --export PAGER:less\x1e\x2dr
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:6272a4
 SETUVAR fish_color_cancel:ff5555\x1e\x2d\x2dreverse
@@ -43,3 +44,4 @@ SETUVAR fish_pager_color_selected_completion:f8f8f2
 SETUVAR fish_pager_color_selected_description:6272a4
 SETUVAR fish_pager_color_selected_prefix:8be9fd
 SETUVAR fish_user_paths:/home/seanm/\x2ecargo/bin
+SETUVAR fish_user_paths:/home/sean/\x2elocal/apps\x1e/home/sean/\x2ecargo/bin

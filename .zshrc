@@ -23,6 +23,7 @@ PATH="/opt/:$PATH"
 PATH="${HOME}/.bin:/opt/:$PATH"
 PATH="${HOME}/.local/bin/:$PATH"
 PATH="${HOME}/.npm/bin/:$PATH"
+PATH="$PATH:/usr/local/go/bin"
 
 # auto-complete for git alias
 _git_behind_master ()

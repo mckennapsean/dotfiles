@@ -133,4 +133,5 @@ export SHELL=/bin/fish
 # export PATH="/home/seanm/anaconda3/bin:$PATH"
 
 export PATH=/home/seanm/.local/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 . "$HOME/.cargo/env"
