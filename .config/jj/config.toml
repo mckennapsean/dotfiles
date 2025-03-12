@@ -1,0 +1,17 @@
+[user]
+name = "Sean McKenna"
+email = "mckennapsean@gmail.com"
+
+[[--scope]]
+--when.repositories = ["~/lucid"]
+[--scope.user]
+email = "seanm@lucidchart.com"
+
+[ui]
+default-command = "log"
+editor = "hx"
+pager = "delta"
+
+[ui.diff]
+format = "git"
+
