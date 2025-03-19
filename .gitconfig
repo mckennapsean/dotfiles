@@ -4,6 +4,8 @@
 [core]
   pager = delta
   editor = vim
+  fsmonitor = true
+  untrackedcache = true
   excludesfile = ~/.gitignore_global
 [pager]
   branch = false

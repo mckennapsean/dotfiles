@@ -9,7 +9,3 @@
 [credential]
   helper = !aws --profile production codecommit credential-helper $@
   UseHttpPath = true
-[scalar]
-  repo = ~/lucid/main
-[maintenance]
-  repo = ~/lucid/main
