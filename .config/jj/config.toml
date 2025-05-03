@@ -13,5 +13,8 @@ editor = "hx"
 pager = "delta"
 
 [ui.diff]
-format = "git"
+formatter = "git"
+
+[revset-aliases]
+"changes()" = "mine() & mutable()"
 

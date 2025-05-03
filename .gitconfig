@@ -81,3 +81,5 @@
 [includeIf "gitdir:~/lucid/*/"]
   path = "~/.gitconfig.lucid"
 
+[init]
+	defaultBranch = main
