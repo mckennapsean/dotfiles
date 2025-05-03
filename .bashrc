@@ -135,3 +135,4 @@ export SHELL=/bin/fish
 export PATH=/home/seanm/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 . "$HOME/.cargo/env"
+export PATH=~/.npm-global/bin:$PATH
