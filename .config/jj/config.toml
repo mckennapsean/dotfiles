@@ -18,3 +18,9 @@ formatter = "git"
 [revset-aliases]
 "changes()" = "mine() & mutable()"
 
+[aliases]
+
+# Find the closest ancestor with a bookmark pointing at it, and move it to the
+# parent of the working copy.
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
