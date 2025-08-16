@@ -43,4 +43,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d44475a
 SETUVAR fish_pager_color_selected_completion:f8f8f2
 SETUVAR fish_pager_color_selected_description:6272a4
 SETUVAR fish_pager_color_selected_prefix:8be9fd
-SETUVAR fish_user_paths:/home/seanm/go/bin\x1e/home/seanm/\x2ecargo/bin\x1e/home/sean/\x2elocal/apps\x1e/home/sean/\x2ecargo/bin\x1e/home/seanm/\x2enpm-global/bin
+SETUVAR fish_user_paths:/home/seanm/\x2elocal/bin\x1e/home/seanm/lucid/review\x2dprompt\x1e/home/seanm/go/bin\x1e/home/seanm/\x2ecargo/bin\x1e/home/sean/\x2elocal/apps\x1e/home/sean/\x2ecargo/bin\x1e/home/seanm/\x2enpm\x2dglobal/bin
