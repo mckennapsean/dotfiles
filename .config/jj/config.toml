@@ -8,9 +8,10 @@ email = "mckennapsean@gmail.com"
 email = "seanm@lucidchart.com"
 
 [ui]
-default-command = "log"
+default-command = "status"
 editor = "hx"
 pager = "delta"
+merge-editor = "meld"
 
 [ui.diff]
 formatter = "git"
@@ -18,9 +19,20 @@ formatter = "git"
 [revset-aliases]
 "changes()" = "mine() & mutable()"
 
-[aliases]
+[template-aliases]
+"format_timestamp(timestamp)" = "timestamp.ago()"
 
+[aliases]
 # Find the closest ancestor with a bookmark pointing at it, and move it to the
 # parent of the working copy.
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+get = ["git", "fetch", "--branch"]
+rebase-all = ["rebase", "--skip-emptied", "-r", "changes()", "-d", "trunk()"]
+sync = ["util", "exec", "--", "bash", "-c", """
+  set -e
+  branch_name=$(jj bookmark list -r 'trunk()' --template 'name ++ "\n"' | head -n 1)
+  jj get $branch_name
+  jj bookmark move $branch_name --to ${branch_name}@origin
+  jj rebase-all
+"""]
 
