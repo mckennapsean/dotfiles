@@ -1,7 +1,17 @@
 {
-  "theme": "GitHub",
-  "selectedAuthType": "oauth-personal",
-  "hasSeenIdeIntegrationNudge": true,
-  "ideMode": true,
-  "model": "gemini-2.5-flash"
+  "ide": {
+    "hasSeenNudge": true,
+    "enabled": true
+  },
+  "model": {
+    "name": "gemini-flash-latest"
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "GitHub"
+  }
 }
