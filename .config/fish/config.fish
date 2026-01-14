@@ -11,3 +11,10 @@ abbr -a -- cpr 'shed bitbucket create-pr-link'
 abbr -a -- csd 'shed bitbucket create-pr-link --target $(git log --pretty=format:%D | grep -m1 "^origin/" | cut -d, -f1 | sed "s/^origin\///")'
 abbr -a -- pkk 'pkill -9 -f'
 abbr -a -- cpu 'watch grep \"cpu MHz\" /proc/cpuinfo'
+
+# pnpm
+set -gx PNPM_HOME "/home/seanm/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
