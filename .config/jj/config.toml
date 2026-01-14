@@ -25,9 +25,19 @@ formatter = "git"
 [aliases]
 # Find the closest ancestor with a bookmark pointing at it, and move it to the
 # parent of the working copy.
+# NOTE: if we track master, then we may auto move the bookmark as well? i think that works now!
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 get = ["git", "fetch", "--branch"]
 rebase-all = ["rebase", "--skip-emptied", "-r", "changes()", "-d", "trunk()"]
+# requires NOT having a mega-merge already (new trunk() will clear a used, empty one)
+# note: may need to jj new to get a new commit to work on as well!
+# note: if you have the mega- merge as its own commit, you have to switch/abandon that too!
+mega-merge = ["new", "heads(trunk()::) & ~empty()"]
+# note: can do a few things within a mega-merge once you have commits
+# make new stack: rebase -r REV -A 'trunk()' -B MM_REV
+# add to stack: rebase -r REV -A STACK_REV -B MM_REV
+# move from stack to new stack: parallelize (may need to be from first commit in stack)
+# note: may want a clear way to detect/find the mega-merge rev easily!
 sync = ["util", "exec", "--", "bash", "-c", """
   set -e
   branch_name=$(jj bookmark list -r 'trunk()' --template 'name ++ "\n"' | head -n 1)
