@@ -8,13 +8,13 @@ email = "mckennapsean@gmail.com"
 email = "seanm@lucidchart.com"
 
 [ui]
-default-command = "status"
+default-command = "log"
 editor = "hx"
-pager = "delta"
 merge-editor = "meld"
+diff-formatter = "delta"
 
-[ui.diff]
-formatter = "git"
+[merge-tools]
+delta.diff-expected-exit-codes = [0, 1]
 
 [revset-aliases]
 "changes()" = "mine() & mutable()"
@@ -28,7 +28,7 @@ formatter = "git"
 # NOTE: if we track master, then we may auto move the bookmark as well? i think that works now!
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 get = ["git", "fetch", "--branch"]
-rebase-all = ["rebase", "--skip-emptied", "-r", "changes()", "-d", "trunk()"]
+rebase-all = ["rebase", "--skip-emptied", "--simplify-parents", "-r", "changes()", "-d", "trunk()"]
 # requires NOT having a mega-merge already (new trunk() will clear a used, empty one)
 # note: may need to jj new to get a new commit to work on as well!
 # note: if you have the mega- merge as its own commit, you have to switch/abandon that too!
@@ -44,5 +44,14 @@ sync = ["util", "exec", "--", "bash", "-c", """
   jj get $branch_name
   jj bookmark move $branch_name --to ${branch_name}@origin
   jj rebase-all
+  # Loop through bookmarks sitting on the trunk now (likely these got squash-merged).
+  for b in $(jj bookmark list -r '::trunk()' --template 'name ++ "\n"'); do
+    # Forget the bookmark as long as it isn't our actual main branch
+    if [ "$b" != "$branch_name" ]; then
+      echo "Cleaning up orphaned bookmark: $b"
+      jj bookmark forget "$b"
+    fi
+  done
+  jj log
 """]
 
