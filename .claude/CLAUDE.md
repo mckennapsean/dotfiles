@@ -2,6 +2,7 @@
 
 ## Version Control
 Use jj (Jujutsu), not git, for all version control operations.
+Prefer `jj commit -m "msg"` over `jj describe` - it's atomic and avoids forgetting `jj new`.
 
 ## Commits
 Use conventional commit format. Only include a Jira trailer if I mention a ticket or explicitly ask for one.
