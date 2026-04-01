@@ -1,0 +1,2 @@
+common --local_resources=cpu=HOST_CPUS*0.6
+common --local_resources=memory=HOST_RAM*0.5
