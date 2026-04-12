@@ -21,6 +21,7 @@ delta.diff-expected-exit-codes = [0, 1]
 
 [template-aliases]
 "format_timestamp(timestamp)" = "timestamp.ago()"
+"format_short_signature(signature)" = "signature.email().local()"
 
 [aliases]
 # Find the closest ancestor with a bookmark pointing at it, and move it to the
