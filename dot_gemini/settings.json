@@ -3,9 +3,6 @@
     "hasSeenNudge": true,
     "enabled": true
   },
-  "model": {
-    "name": "gemini-flash-latest"
-  },
   "security": {
     "auth": {
       "selectedType": "oauth-personal"
