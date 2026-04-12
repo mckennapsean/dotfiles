@@ -4,9 +4,9 @@ end
 abbr -a -- g git
 abbr -a -- b lucid-bazel
 abbr -a -- lm 'cd ~/lucid/main/'
-abbr -a -- lm1 'jjw ~/lucid/main-agent-01/'
-abbr -a -- lm2 'jjw ~/lucid/main-agent-02/'
-abbr -a -- lm3 'jjw ~/lucid/main-agent-03/'
+abbr -a -- lm1 'jjw ~/lucid/main-01/'
+abbr -a -- lm2 'jjw ~/lucid/main-02/'
+abbr -a -- lm3 'jjw ~/lucid/main-03/'
 abbr -a -- bfd 'lucid-bazel format --diff'
 abbr -a --set-cursor='%' -- bfs 'bazel format --diff --since=%'
 abbr -a -- check 'git check && jj git fetch --branch  master --branch master-stable && echo "Git fetched from upstream." && git check'
@@ -28,6 +28,6 @@ end
 # pnpm
 set -gx PNPM_HOME "/home/seanm/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end

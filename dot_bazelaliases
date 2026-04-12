@@ -10,4 +10,6 @@ ta = --test_arg
 to = --test_output=streamed
 nc = --nocache_test_results
 sh = --test_sharding_strategy=explicit
+lo = --spawn_strategy=local
+err = --test_output=errors
 ts = //cake/app/webroot/ts/
