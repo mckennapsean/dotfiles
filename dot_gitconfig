@@ -60,14 +60,9 @@
 [diff]
   algorithm = histogram
   colorMoved = default
-[interactive]
-  diffFilter = delta --color-only
 [delta]
-  syntax-theme = zenburn
-  minus-style = "red"
-  minus-emph-style = "bold red"
-  plus-style = "green"
-  plus-emph-style = "bold green"
+  file-style = bold purple
+  features = diff-highlight
 [merge]
   conflictstyle = zdiff3
   tool = meld

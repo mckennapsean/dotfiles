@@ -10,7 +10,6 @@ email = "seanm@lucidchart.com"
 [ui]
 default-command = "log"
 editor = "hx"
-merge-editor = "meld"
 diff-formatter = "delta"
 
 [merge-tools]
@@ -18,33 +17,29 @@ delta.diff-expected-exit-codes = [0, 1]
 
 [revset-aliases]
 "changes()" = "mine() & mutable()"
+"closest_merge(to)" = "heads(::to & merges())"
 
 [template-aliases]
 "format_timestamp(timestamp)" = "timestamp.ago()"
 "format_short_signature(signature)" = "signature.email().local()"
 
 [aliases]
-# Find the closest ancestor with a bookmark pointing at it, and move it to the
-# parent of the working copy.
-# NOTE: if we track master, then we may auto move the bookmark as well? i think that works now!
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+tug = ["bookmark", "advance", "--to", "@-"]
 get = ["git", "fetch", "--branch"]
-rebase-all = ["rebase", "--skip-emptied", "--simplify-parents", "-r", "changes()", "-d", "trunk()"]
-# requires NOT having a mega-merge already (new trunk() will clear a used, empty one)
-# note: may need to jj new to get a new commit to work on as well!
-# note: if you have the mega- merge as its own commit, you have to switch/abandon that too!
-mega-merge = ["new", "heads(trunk()::) & ~empty()"]
-# note: can do a few things within a mega-merge once you have commits
-# make new stack: rebase -r REV -A 'trunk()' -B MM_REV
-# add to stack: rebase -r REV -A STACK_REV -B MM_REV
-# move from stack to new stack: parallelize (may need to be from first commit in stack)
-# note: may want a clear way to detect/find the mega-merge rev easily!
+# create a combined merge of all other non-empty changes
+megamerge = ["new", "heads(changes() & ~empty() & ~::trunk())"]
+# move <revset>, parallelized before the megamerge
+spread = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
+# split off the whole stack to before megamerge
+stack = ["spread", "closest_merge(@)+:: ~empty()"]
+# rebase your mutable changes onto trunk
+restack = ["rebase", "--onto", "trunk()", "--source", "roots(trunk()..) & mutable()", "--simplify-parents", "--skip-emptied"]
 sync = ["util", "exec", "--", "bash", "-c", """
   set -e
   branch_name=$(jj bookmark list -r 'trunk()' --template 'name ++ "\n"' | head -n 1)
   jj get $branch_name
   jj bookmark move $branch_name --to ${branch_name}@origin
-  jj rebase-all
+  jj restack
   # Loop through bookmarks sitting on the trunk now (likely these got squash-merged).
   for b in $(jj bookmark list -r '::trunk()' --template 'name ++ "\n"'); do
     # Forget the bookmark as long as it isn't our actual main branch
