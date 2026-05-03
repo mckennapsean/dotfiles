@@ -14,6 +14,7 @@ abbr -a -- cpr 'shed bitbucket create-pr-link'
 abbr -a -- csd 'shed bitbucket create-pr-link --target $(git log --pretty=format:%D | grep -m1 "^origin/" | cut -d, -f1 | sed "s/^origin\///")'
 abbr -a -- pkk 'pkill -9 -f'
 abbr -a -- cpu 'watch grep \"cpu MHz\" /proc/cpuinfo'
+abbr -a -- cf 'rg --files | fzf -m | xargs -d "\n" code'
 
 # switch & update workspace if needed
 function jjw
