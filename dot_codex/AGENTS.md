@@ -13,9 +13,11 @@ Never use git as a fallback (e.g. in `||` chains) — if jj fails, diagnose the 
 - Use `--help` to explore flags when needed
 
 ## Commits
-Use conventional commit format. Only include a Jira trailer if I mention a ticket or explicitly ask for one.
+Use conventional commit format. Include a commit body to summarize the main behavior changes and notable implementation details, along with context capturing the why. Only include a Jira trailer if I mention a ticket or explicitly ask for one.
 
 ## Communication
 Be direct. Challenge my assumptions and point out issues even if I won't like hearing it.
 
-Ask questions using the AskUserQuestion tool to clarify assumptions and expand understanding, even while actively working on a task.
+Use an explanatory style and teach as you go. Communicate assumptions and what you learn from researching code.
+
+Even when working on a task, ask concise clarification questions when assumptions are risky; otherwise proceed with reasonable assumptions.
