@@ -3,15 +3,12 @@ if status is-interactive
 end
 abbr -a -- g git
 abbr -a -- b lucid-bazel
+abbr -a -- cx codex
 abbr -a -- lm 'cd ~/lucid/main/'
 abbr -a -- lm1 'jjw ~/lucid/main-01/'
 abbr -a -- lm2 'jjw ~/lucid/main-02/'
 abbr -a -- lm3 'jjw ~/lucid/main-03/'
-abbr -a -- bfd 'lucid-bazel format --diff'
-abbr -a --set-cursor='%' -- bfs 'bazel format --diff --since=%'
-abbr -a -- check 'git check && jj git fetch --branch  master --branch master-stable && echo "Git fetched from upstream." && git check'
-abbr -a -- cpr 'shed bitbucket create-pr-link'
-abbr -a -- csd 'shed bitbucket create-pr-link --target $(git log --pretty=format:%D | grep -m1 "^origin/" | cut -d, -f1 | sed "s/^origin\///")'
+abbr -a --set-cursor='%' -- jjf 'shed format --since=$(jj log -r "@-%" --no-graph -T commit_id --limit 1)'
 abbr -a -- pkk 'pkill -9 -f'
 abbr -a -- cpu 'watch grep \"cpu MHz\" /proc/cpuinfo'
 abbr -a -- cf 'rg --files | fzf -m | xargs -d "\n" code'
@@ -26,9 +23,17 @@ function jjw
     end
 end
 
+# jj dynamic completions
+if command -v jj >/dev/null
+    COMPLETE=fish jj | source
+end
+
 # pnpm
 set -gx PNPM_HOME "/home/seanm/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+direnv hook fish | source
+set -Ux DIRENV_LOG_FORMAT ""
