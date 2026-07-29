@@ -1,16 +1,17 @@
 # Global Preferences
 
 ## Version Control
-Use jj (Jujutsu), not git or gt, for all version control operations.
-Never use git as a fallback (e.g. in `||` chains) — if jj fails, diagnose the jj issue.
 
-- Use `jj commit -m "msg"` to finalize work (atomic — creates a new empty working copy, no `jj new` needed after)
-- Use `jj squash` when folding working-copy changes into the parent (e.g., build/format fixes that belong with the prior commit) — don't use it as a substitute for `jj commit` when creating standalone work
-- Use `jj describe` only to update an existing revision's commit message
-- Use `jj new <revision>` to start work on top of a commit, not `jj edit` or `jj rebase`
-- Use `jj rebase -r REV --before TARGET` (or `--after`) for reordering commits in a stack — not `-d` alone
-- Push: `jj git push -c @-` creates a bookmark from the last revision and pushes; chain multiple `-c` flags for multiple revisions
-- Use `--help` to explore flags when needed
+Use jj (Jujutsu), not git or gt. Never fall back to git (e.g. in `||` chains); if jj fails, diagnose the jj issue.
+
+I work in a squash workflow: land changes by stacking a new commit on top and folding it where it belongs, rather than editing a commit in place.
+
+- New work: `jj new <revision>`, then `jj commit -m 'msg'` (atomic; no `jj new` needed after).
+- Changing an existing commit: `jj new <change>`, edit, then `jj squash --into <change>`. Prefer this over `jj edit`, which edits in place and rebases descendants as you go; reach for `jj edit` only when that's actually what you want.
+- Message-only change: `jj describe`.
+- Reordering: `jj rebase -r REV --before|--after TARGET`, not `-d` alone. `-s` instead of `-r` to move a stack, which may use `-d`.
+- Push only what was asked for: `jj git push -b <bookmark>` for an existing bookmark, or `-c <revision>` to create one. Never bare `jj git push`; it pushes every out-of-sync bookmark in the stack.
+- `--help` to explore flags.
 
 ## Commits
 Use conventional commit format. Only include a Jira trailer if I mention a ticket or explicitly ask for one.
