@@ -9,7 +9,7 @@ email = "seanm@lucidchart.com"
 
 [ui]
 default-command = "log"
-editor = "hx"
+editor = "vim"
 diff-formatter = "delta"
 
 [merge-tools]
