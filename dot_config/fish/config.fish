@@ -5,16 +5,16 @@ abbr -a -- g git
 abbr -a -- b lucid-bazel
 abbr -a -- cx codex
 abbr -a -- lm 'cd ~/lucid/main/'
-abbr -a -- lm1 'jjw ~/lucid/main-01/'
-abbr -a -- lm2 'jjw ~/lucid/main-02/'
-abbr -a -- lm3 'jjw ~/lucid/main-03/'
+abbr -a -- lm1 'jjws ~/lucid/main-01/'
+abbr -a -- lm2 'jjws ~/lucid/main-02/'
+abbr -a -- lm3 'jjws ~/lucid/main-03/'
 abbr -a --set-cursor='%' -- jjf 'shed format --since=$(jj log -r "@-%" --no-graph -T commit_id --limit 1)'
 abbr -a -- pkk 'pkill -9 -f'
 abbr -a -- cpu 'watch grep \"cpu MHz\" /proc/cpuinfo'
 abbr -a -- cf 'rg --files | fzf -m | xargs -d "\n" code'
 
 # switch & update workspace if needed
-function jjw
+function jjws
     cd $argv[1]
     jj 2>/dev/null
     or begin
@@ -39,3 +39,4 @@ if type -q direnv
     direnv hook fish | source
 end
 set -Ux DIRENV_LOG_FORMAT ""
+
