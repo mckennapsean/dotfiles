@@ -11,6 +11,7 @@
   branch = false
 [push]
   default = current
+  autoSetupRemote = true
 [alias]
   in = init
   cl = clone
@@ -28,14 +29,15 @@
   shp = stash pop
   br = branch
   brd = branch -D
-  done = "!git br --merged origin/master | xargs -n 1 git br -d"
-  clear = "!git ch master && git br --merged | grep -v '\\*' | xargs -n 1 git brd"
-  nuke = "!git ch master && git br | grep -v '\\*' | xargs -n 1 git brd"
+  done = "!git br --merged origin/main | xargs -n 1 git br -d"
+  clear = "!git ch main && git br --merged | grep -v '\\*' | xargs -n 1 git brd"
+  nuke = "!git ch main && git br | grep -v '\\*' | xargs -n 1 git brd"
   age = for-each-ref --sort=-authordate --format '%(align:left,15) %(authordate:relative) %(end)%(align:left,30) %(refname:short)%(end) %(subject)' refs/heads
   aged = for-each-ref --sort=-authordate --format '%(authordate:format:%Y-%m-%d %H:%M) %(align:left,30) %(refname:short)%(end) %(subject)' refs/heads
-  rev-behind = !git rev-list --count origin/master ^$1
-  how-far-behind = !git --no-pager show $(git merge-base origin/master $1) --pretty=format:'%ar' --no-patch
-  behind-master = !echo $1: $(git rev-behind $1) behind, $(git how-far-behind $1) && :
+  rev-behind = !git rev-list --count origin/main ^$1
+  how-far-behind = !git --no-pager show $(git merge-base origin/main $1) --pretty=format:'%ar' --no-patch
+  behind-main = !echo $1: $(git rev-behind $1) behind, $(git how-far-behind $1) && :
+  behind-master = !echo $1: $(git rev-list --count origin/master ^$1) behind, $(git --no-pager show $(git merge-base origin/master $1) --pretty=format:'%ar' --no-patch) && :
   ch = checkout
   me = merge
   re = rebase
@@ -43,18 +45,18 @@
   rei = rebase --interactive --keep-base
   ref = rebase --interactive --autosquash
   rec = rebase --continue
-  rem = rebase origin/master
+  rem = rebase origin/main
   reo = rebase --onto
   fe = fetch
   pl = pull
-  up = fetch origin master:master
+  up = fetch origin main:main
   ps = push
   psf = push --force-with-lease
   pfa = push --force-with-lease --atomic
   wt = worktree
   lb = shortlog -sn --no-merges
   bi = bisect
-  stat = !git diff --stat $(git merge-base HEAD "origin/master")
+  stat = !git diff --stat $(git merge-base HEAD "origin/main")
 [branch]
   sort = -committerdate
 [diff]
@@ -73,8 +75,6 @@
   updateRefs = true
 [pull]
   rebase = true
-[push]
-  autoSetupRemote = true
 [credential]
   helper = cache
 [includeIf "gitdir:~/lucid/*/"]
